@@ -25,6 +25,27 @@ pytest
 
 ***
 
+После установки Allure, выполните свои тесты с помощью pytest и добавьте опцию --alluredir, чтобы сохранить отчеты Allure в определенной директории. Например:
+
+```bash
+pytest --alluredir=allure-results
+```
+
+Здесь allure-results - это директория, в которой будут сохранены результаты тестов.
+
+Запустите Allure Command Line для генерации отчета на основе результатов тестов:
+
+```bash
+allure generate allure-results --clean -o allure-report
+```
+После успешного выполнения команды allure generate, вы можете открыть отчет в браузере с помощью следующей команды:
+
+```bash
+allure open allure-report
+```
+
+
+
 ## Автор - [Александр С.](github.com/AlexandrSakulin)
 
 ***

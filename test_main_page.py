@@ -9,6 +9,11 @@ def test_guest_should_see_login_link(browser):
     page.should_be_login_link()
 
 
+def test_example(browser):
+    # Пример теста с ошибкой (замените на ваш реальный тест)
+    assert False, "Пример ошибки в тесте"
+
+
 def test_guest_should_see_registration_link(browser):
     """Проверяет, что гость видит ссылку на страницу регистрации на главной странице."""
     page = MainPage(browser)
@@ -21,22 +26,22 @@ def test_guest_should_see_basket_link(browser):
     page.should_be_basket_link()
 
 
-def test_guest_can_go_to_login_page(browser):
-    """Проверяет, что гость может перейти на страницу входа."""
-    page = MainPage(browser)
-    page.go_to_login_page()
-
-
-def test_guest_can_go_to_registration_page(browser):
-    """Проверяет, что гость может перейти на страницу регистрации."""
-    page = MainPage(browser)
-    page.go_to_registration_page()
-
-
-def test_guest_can_go_to_basket_page(browser):
-    """Проверяет, что гость может перейти на страницу корзины."""
-    page = MainPage(browser)
-    page.go_to_basket_page()
+# def test_guest_can_go_to_login_page(browser):
+#     """Проверяет, что гость может перейти на страницу входа."""
+#     page = MainPage(browser)
+#     page.go_to_login_page()
+#
+#
+# def test_guest_can_go_to_registration_page(browser):
+#     """Проверяет, что гость может перейти на страницу регистрации."""
+#     page = MainPage(browser)
+#     page.go_to_registration_page()
+#
+#
+# def test_guest_can_go_to_basket_page(browser):
+#     """Проверяет, что гость может перейти на страницу корзины."""
+#     page = MainPage(browser)
+#     page.go_to_basket_page()
 
 
 # def test_enter_login_and_password(browser):
