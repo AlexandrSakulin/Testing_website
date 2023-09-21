@@ -1,22 +1,14 @@
 import pytest
+import os
 from selenium import webdriver
+from configurations import MAIN_URL
 
 
-@pytest.fixture(scope="function")
-def browser():
-    """
-    Автоматически закрывает браузер после завершения теста.
-    """
+@pytest.fixture
+def browser(request):
+    """Автоматически открывает указанный URL-адрес MAIN_URL перед началом теста и
+    закрывает браузер после завершения теста"""
     driver = webdriver.Chrome()
-    yield driver
-    driver.quit()
-
-
-@pytest.fixture(scope="session")
-def browser_session():
-    """
-    Автоматически закрывает браузер после завершения серии тестов.
-    """
-    driver = webdriver.Chrome()
+    driver.get(MAIN_URL)
     yield driver
     driver.quit()

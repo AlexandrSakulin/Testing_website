@@ -1,1 +1,1 @@
-LINK_SITE = "https://shop.hclokomotiv.ru"
+MAIN_URL = "https://shop.hclokomotiv.ru"
