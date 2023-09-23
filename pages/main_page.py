@@ -30,14 +30,28 @@ class MainPage(BasePage, MainPageLocators):
     def go_to_basket_page(self):
         """Осуществляет переход на страницу регистрации, кликая по соответствующей ссылке."""
         (self.driver.find_element(*self.BASKET_LINK)).click()
-        assert "basket" in self.driver.current_url.lower(), "При нажатии переход не произошел"
+        assert "cart/content" in self.driver.current_url.lower(), "При нажатии переход не произошел"
 
-    # def enter_email(self):
-    #     (self.driver.find_element(*self.LOGIN_LINK)).click()
-    #     login_field = self.driver.find_element(*self.ENTER_LOGIN)
-    #     login_field.send_keys("torb7nsk7y@icloud.com")
-    #
-    # def enter_password(self):
-    #     (self.driver.find_element(*self.LOGIN_LINK)).click()
-    #     login_field = self.driver.find_element(*self.ENTER_LOGIN)
-    #     login_field.send_keys("torb7nsk7y@icloud.com")
+    # Проверка карточки товара
+    def should_be_product_link(self):
+        """Проверяет наличие ссылки на страницу карточки товара."""
+        assert self.is_element_present(self.PRODUCT_LINK), "Ссылка на вход отсутствует"
+
+    def go_to_product_page(self):
+        """Осуществляет переход на страницу карточки товара."""
+        (self.driver.find_element(*self.PRODUCT_LINK)).click()
+        assert "product/" in self.driver.current_url.lower(), "При нажатии переход не произошел"
+
+    def click_basket_buy(self):
+        (self.driver.find_element(*self.BUTTON_BASKET_BUY)).click()
+        assert "cart/content" in self.driver.current_url.lower(), "При нажатии переход не произошел"
+
+    def screen_scroll(self):
+        element = self.driver.find_element(self.PRODUCT_LINK)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    def clicked_buy_product_go_to_basket(self):
+        self.screen_scroll()
+        self.should_be_product_link()
+        self.go_to_product_page()
+        self.click_basket_buy()

@@ -2,7 +2,7 @@ import pytest
 import allure
 import os
 from selenium import webdriver
-from configurations import MAIN_URL
+from configurations import MAIN_URL, WAIT_TIMEOUT
 
 
 @pytest.fixture
@@ -11,6 +11,7 @@ def browser(request):
     закрывает браузер после завершения теста"""
     driver = webdriver.Chrome()
     driver.get(MAIN_URL)
+
     yield driver
     driver.quit()
 
